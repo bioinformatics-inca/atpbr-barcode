@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Barcode ATPBR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<header class="header">
+  <div class="header-content">
+    <div class="header-text">
+      <h1>Sistema de Barcodes</h1>
+      <p class="subtitle">Atlas Tumoral da População Brasileira</p>
+    </div>
+    <img src="img/logo_atpbr_cortada.png" alt="Logo ATPBR" class="logo">
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <p>
+      O sistema de barcodes do <strong>Atlas Tumoral da População Brasileira (ATPBR)</strong> foi desenvolvido para prover identificadores únicos e padronizados para cada amostra biológica cujos dados serão depositados na plataforma ATPBR e estarão vinculados ao <strong>Banco Nacional de Tumores (BNT)</strong>.  
+      Dessa forma, a rastreabilidade dos dados é assegurada sem comprometer o anonimato dos pacientes e garantindo a interoperabilidade na plataforma.
+    </p>
+  
+    <h3> Objetivos dos Barcodes</h3>
+      <ul>
+        <li><strong>Identificação Única:</strong> Atribuir um identificador exclusivo a cada amostra biológica registrada, evitando redundâncias ou ambiguidades.</li>
+        <li><strong>Anonimização dos Dados:</strong> Assegurar rastreabilidade sem comprometer anonimato ou privacidade dos pacientes.</li>
+        <li><strong>Interoperabilidade:</strong> Facilitar a integração e o intercâmbio de dados na plataforma e com outros sistemas compatíveis.</li>
+      </ul>
+  
+    <h3> Estrutura do Barcode</h3>
+      <p>
+        O formato do barcode do ATPBR é composto por um conjunto de <strong>seis campos identificadores</strong> em ordem pré-definida.  
+        Cada campo corresponde a elementos específicos da amostra, respeitando padrões que organizam e facilitam a análise dos dados.
+      </p>
+        
+    <h3> Contato</h3>
+      <p>
+        Para dúvidas, sugestões ou outras informações, entre em contato pelo e-mail <strong>lilianeconteville@gmail.com</strong>. 
+      </p>
+        
+  </section>
+
+  <section class="card">
+    <h2>🧬 Geração de Barcodes Padronizados</h2>
+    <p class="example">Preencha os campos abaixo para gerar o barcode padronizado para sua amostra.</p>
+    
+    <form id="form" class="form">
+      
+<!-- Projeto -->
+<fieldset>
+  <legend>📁 Projeto</legend>
+
+  <!-- Nome do projeto -->
+  <div class="form-group">
+    <label for="project">Nome do projeto</label>
+    <select id="project" name="project" required>
+      <option value="">-- Selecione um projeto --</option>
+      <option value="GENBR">GENBR - Projeto Genoma Brasil</option>
+      <option value="ATPBR">ATPBR - Atlas tumoral da população Brasileira</option>
+    </select>
+  </div>
+
+  <!-- Neoplasia primária -->
+  <div class="form-group espaco-extra">
+    <label for="cancertype">Neoplasia primária:</label>
+    <select id="cancertype" required>
+      <option value="">Selecione...</option>
+      <option value="056">Câncer de Ovário (CID 056)</option>
+      <option value="050">Câncer de Mama (CID 050)</option>
+      <option value="053">Câncer de Colo de Útero (CID 053)</option>
+      <option value="541">Câncer de Endométrio (CID 541)</option>
+      <option value="060">Câncer de Pênis (CID 060)</option>
+      <option value="061">Câncer de Próstata (CID 061)</option>
+      <option value="021">Câncer Anal (CID 021)</option>
+      <option value="091">Leucemia Linfóide (CID 091)</option>
+      <option value="092">Leucemia Mielóide (CID 092)</option>
+    </select>
+  </div>
+
+  <!-- Centro participante -->
+  <div class="form-group espaco-extra">
+    <label for="center">Centro participante responsável pela coleta:</label>
+    <select id="center" required>
+      <option value="">Selecione...</option>
+      <option value="001">Instituto Nacional do Câncer - INCA (001)</option>
+      <option value="002">Instituto do Câncer do Estado de São Paulo - ICESP (002)</option>
+      <option value="003">Instituto do Câncer do Ceará - ICC (003)</option>
+    </select>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>🧪 Classificação das Amostras:</legend>
+        <label>
+          Tipo de amostra:
+          <select id="sampletype" required>
+            <option value="">Selecione...</option>
+            <option value="01">Tecido (01)</option>
+            <option value="02">Sangue (02)</option>
+            <option value="03">Plasma (03)</option>
+            <option value="04">Soro (04)</option>
+            <option value="05">Medula Óssea (05)</option>
+            <option value="06">Líquido Peritoneal (06)</option>
+            <option value="07">Líquido Sinovial (07)</option>
+            <option value="08">Líquido Pericárdico (08)</option>
+            <option value="09">Líquido Cefalorraquidiano (09)</option>
+            <option value="10">Lavado Brônquico (10)</option>
+            <option value="11">Lavado Peritoneal (11)</option>
+            <option value="12">Urina (12)</option>
+            <option value="13">Saliva (13)</option>
+            <option value="14">Escarro (14)</option>
+            <option value="15">Fezes (15)</option>
+            <option value="16">Pele (16)</option>
+            <option value="17">Células (17)</option>
+            <option value="18">Secreção Mamária (18)</option>
+            <option value="19">Líquido Pleural (19)</option>
+            <option value="20">Exossomos (20)</option>
+            <option value="21">Biópsia por Agulha Fina (21)</option>
+          </select>
+        </label>
+
+        <label>
+          Status da amostra:
+          <select id="samplestatus" required>
+            <option value="">Selecione...</option>
+            <option value="A">Tumoral Maligno (A)</option>
+            <option value="B">Tumoral Benigno (B)</option>
+            <option value="C">Lesão (C)</option>
+            <option value="D">Metástase (D)</option>
+            <option value="E">Normal Adjacente (E)</option>
+            <option value="F">Normal Distante (F)</option>
+            <option value="G">Linfonodo Metastático (G)</option>
+            <option value="H">Linfonodo Reacional (H)</option>
+            <option value="I">Inflamação (I)</option>
+            <option value="J">Linhagem Celular (J)</option>
+          </select>
+        </label>
+
+        <label>
+          Preservação da amostra:
+          <select id="samplepreservation" required>
+            <option value="">Selecione...</option>
+            <option value="A">Fresco (A)</option>
+            <option value="B">Congelado (B)</option>
+            <option value="C">FFPE Formalin-Fixed Paraffin-Embedded (C)</option>
+            <option value="D">PFA Paraformaldeído (D)</option>
+            <option value="E">Rnalater (E)</option>
+            <option value="F">Meio de Cultura (F)</option>
+            <option value="G">Tampão Salino (G)</option>
+            <option value="H">EDTA (H)</option>
+            <option value="I">Citrato (I)</option>
+            <option value="J">Sem Anti-Coagulante (J)</option>
+            <option value="K">Heparina (K)</option>
+            <option value="L">Solução Fisiológica (L)</option>
+          </select>
+        </label>
+
+        <label>
+          Tipo de Analito:
+          <select id="analytetype" required>
+            <option value="">Selecione...</option>
+            <option value="D">DNA</option>
+            <option value="R">RNA</option>
+            <option value="P">Proteína</option>
+            <option value="L">Lipídeos</option>
+          </select>
+        </label>
+      </fieldset>
+      
+      <fieldset>
+        <legend>👤 Doadores / Pacientes e Amostras</legend>
+        <label>
+          Informe os códigos anonimizados dos doadores/pacientes e amostras (um por linha, 4 dígitos cada). Os números das amostras correspondem ao número da amostra no BNT:
+        </label>
+        <div class="textareas-container">
+          <label>
+            Doadores/Pacientes:
+            <textarea id="doador" rows="5" placeholder="Ex: 0001&#10;0002&#10;0003" required></textarea>
+          </label>
+          <label>
+            Amostras:
+            <textarea id="amostra" rows="5" placeholder="Ex: 1001&#10;1002&#10;1003" required></textarea>
+          </label>
+        </div> 
+      </fieldset>
+
+      <button type="submit" class="btn">Criar Barcode</button>
+    </form>
+
+    <div id="resultado" class="resultado"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  Projeto ATPBR · Atlas Tumoral da População Brasileira · © 2025
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
