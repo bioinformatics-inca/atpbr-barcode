@@ -39,7 +39,7 @@ form.addEventListener("submit", (e) => {
   }
 
   let codigosGerados = [];
-  let linhasCSV = ["Projeto,CID,Centro,Participante,Amostra,CodExtra,Barcode"];
+  let linhasCSV = ["Projeto;CID;Centro;Participante;Amostra;Classificacao;Barcode"];
 
   for (let i = 0; i < doadores.length; i++) {
     const doadorID = doadores[i];
@@ -48,7 +48,7 @@ form.addEventListener("submit", (e) => {
     const barcode = `${project}-${cancerCID}-${centerID}-${doadorID}-${sampleID}-${codExtra}`; 
     
     codigosGerados.push(barcode);
-    linhasCSV.push(`${project},${cancerCID},${centerID},${doadorID},${sampleID},${codExtra},${barcode}`); 
+    linhasCSV.push(`${project};${cancerCID};${centerID};${doadorID};${sampleID};${codExtra};${barcode}`); 
   }
 
   resultado.innerHTML = `
@@ -58,10 +58,10 @@ form.addEventListener("submit", (e) => {
   `;
 
   document.getElementById("downloadCsvBtn").addEventListener("click", () => {
-    const blob = new Blob([linhasCSV.join("\n")], { type: "text/csv" });
+    const blob = new Blob([linhasCSV.join("\n")], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "barcodes.csv";
+    link.download = "barcodesgerados_ATPBR.csv";
     link.click();
   });
 });
