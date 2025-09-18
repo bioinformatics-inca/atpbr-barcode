@@ -4,3 +4,4 @@ Esta aplicação web tem o objetivo de **gerar barcodes padronizados** conforme 
 
 O sistema de barcodes foi desenvolvido para prover **identificadores únicos e padronizados** para cada amostra biológica, assegurando **rastreabilidade dos dados**, **anonimização dos participantes** e **interoperabilidade da plataforma**.
 
+.
