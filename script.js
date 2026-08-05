@@ -12,7 +12,7 @@ form.addEventListener("submit", (e) => {
   const sampleType = document.getElementById("sampletype").value;
   const sampleStatus = document.getElementById("samplestatus").value;
   const samplePreservation = document.getElementById("samplepreservation").value;
-  const analyteType = document.getElementById("analytetype").value;
+  const omicsType = document.getElementById("omicstype").value;
 
   const showError = (msg) => {
     resultado.innerHTML = `<p style="color:red;">${msg}</p>`;
@@ -27,7 +27,7 @@ form.addEventListener("submit", (e) => {
   if (!sampleType) return showError("⚠️ Selecione o tipo de amostra.");
   if (!sampleStatus) return showError("⚠️ Selecione o status da amostra.");
   if (!samplePreservation) return showError("⚠️ Selecione a preservação da amostra.");
-  if (!analyteType) return showError("⚠️ Selecione o tipo de analito.");
+  if (!omicsType) return showError("⚠️ Selecione o tipo de ômica.");
 
   for (let i = 0; i < doadores.length; i++) {
     if (!/^\d{4}$/.test(doadores[i])) {
@@ -44,7 +44,7 @@ form.addEventListener("submit", (e) => {
   for (let i = 0; i < doadores.length; i++) {
     const doadorID = doadores[i];
     const sampleID = amostras[i];
-    const codExtra = `${sampleType}${sampleStatus}${samplePreservation}${analyteType}`;
+    const codExtra = `${sampleType}${sampleStatus}${samplePreservation}${omicsType}`;
     const barcode = `${project}-${cancerCID}-${centerID}-${doadorID}-${sampleID}-${codExtra}`; 
     
     codigosGerados.push(barcode);
