@@ -102,6 +102,30 @@ body {
   color: #666;
 }
 
+/* Códigos citados no texto */
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+  background: #eef3fa;
+  color: #2251a4;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* Barcode de exemplo */
+.barcode-exemplo {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  color: #2251a4;
+  background: #eaf3ff;
+  border: 1px solid #cbdcf5;
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+}
+
 /* ====== Formulário ====== */
 .form label {
   display: block;
@@ -125,6 +149,15 @@ body {
 .form select {
   max-height: 180px;
   overflow-y: auto;
+}
+
+/* Texto com os valores aceitos em cada campo */
+.hint {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  color: #666;
+  margin-top: 2px;
 }
 
 /* Textarea mais confortável */

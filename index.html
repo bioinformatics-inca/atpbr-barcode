@@ -22,84 +22,98 @@
 <main class="container">
   <section class="card">
     <p>
-      O sistema de barcodes do <strong>Atlas Tumoral da População Brasileira (ATPBR)</strong> foi desenvolvido para prover identificadores únicos e padronizados para cada amostra biológica cujos dados serão depositados na plataforma ATPBR e estarão vinculados ao <strong>Banco Nacional de Tumores (BNT)</strong>.  
+      O sistema de barcodes do <strong>Atlas Tumoral da População Brasileira (ATPBR)</strong> foi desenvolvido para prover identificadores únicos e padronizados para cada amostra biológica cujos dados serão depositados na plataforma ATPBR e estarão vinculados ao <strong>Banco Nacional de Tumores (BNT)</strong>.
       Dessa forma, a rastreabilidade dos dados é assegurada sem comprometer o anonimato dos pacientes e garantindo a interoperabilidade na plataforma.
     </p>
-  
-    <h3> Objetivos dos Barcodes</h3>
-      <ul>
-        <li><strong>Identificação Única:</strong> Atribuir um identificador exclusivo a cada amostra biológica registrada, evitando redundâncias ou ambiguidades.</li>
-        <li><strong>Anonimização dos Dados:</strong> Assegurar rastreabilidade sem comprometer anonimato ou privacidade dos pacientes.</li>
-        <li><strong>Interoperabilidade:</strong> Facilitar a integração e o intercâmbio de dados na plataforma e com outros sistemas compatíveis.</li>
-      </ul>
-  
-    <h3> Estrutura do Barcode</h3>
-      <p>
-        O formato do barcode do ATPBR é composto por um conjunto de <strong>sete campos identificadores</strong> em ordem pré-definida.  
-        Cada campo codifica um nível específico de informação biológica ou experimental.
-      </p>
-        
-    <h3> Contato</h3>
-      <p>
-        Para dúvidas, sugestões ou outras informações, entre em contato pelo e-mail <strong>lilianeconteville@gmail.com</strong>. 
-      </p>
-        
+
+    <h3>Objetivos dos Barcodes</h3>
+    <ul>
+      <li><strong>Identificação Única:</strong> Atribuir um identificador exclusivo a cada amostra biológica registrada, evitando redundâncias ou ambiguidades.</li>
+      <li><strong>Anonimização dos Dados:</strong> Assegurar rastreabilidade sem comprometer anonimato ou privacidade dos pacientes.</li>
+      <li><strong>Interoperabilidade:</strong> Facilitar a integração e o intercâmbio de dados na plataforma e com outros sistemas compatíveis.</li>
+    </ul>
+
+    <h3>Estrutura do Barcode</h3>
+    <p>
+      O barcode do ATPBR é formado por <strong>sete campos identificadores</strong> em ordem pré-definida, separados por hífen.
+      Cada campo codifica um nível específico de informação biológica ou experimental:
+    </p>
+    <ul>
+      <li><strong>1. Projeto</strong> - sigla do projeto ao qual a amostra pertence (5 letras). Ex.: <code>ATPBR</code>.</li>
+      <li><strong>2. Neoplasia primária</strong> - CID da neoplasia de origem (2 dígitos). Ex.: <code>56</code>, câncer de ovário.</li>
+      <li><strong>3. Centro participante</strong> - instituição responsável pela coleta (3 dígitos). Ex.: <code>001</code>, INCA.</li>
+      <li><strong>4. Doador/paciente</strong> - código anonimizado do doador/paciente (4 dígitos). Ex.: <code>1234</code>.</li>
+      <li><strong>5. Amostra</strong> - código da amostra biológica coletada (4 dígitos). Ex.: <code>5678</code>.</li>
+      <li><strong>6. Classificação da amostra</strong> - reúne tipo de amostra (2 dígitos), status (1 letra) e preservação (1 letra). Ex.: <code>01AB</code>, tecido tumoral maligno congelado.</li>
+      <li><strong>7. Sequenciamento</strong> - reúne tipo de ômica (1 letra), número da corrida (2 dígitos) e lane (2 dígitos). Ex.: <code>G0107</code>, whole genome sequencing na corrida 01, lane 07.</li>
+    </ul>
+    <p>
+      Reunindo os sete campos do exemplo acima, o barcode resultante é:
+    </p>
+    <p class="barcode-exemplo">ATPBR-56-001-1234-5678-01AB-G0107</p>
+
+    <h3>Contato</h3>
+    <p>
+      Para dúvidas, sugestões ou outras informações, entre em contato pelo e-mail <strong>lilianeconteville@gmail.com</strong>.
+    </p>
   </section>
 
   <section class="card">
     <h2>🧬 Geração de Barcodes Padronizados</h2>
     <p class="example">Preencha os campos abaixo para gerar o barcode padronizado para sua amostra.</p>
-    
+
     <form id="form" class="form" novalidate>
-      
-<!-- Projeto -->
-<fieldset>
-  <legend>📁 Projeto</legend>
 
-  <!-- Nome do projeto -->
-  <div class="form-group">
-    <label for="project">Nome do projeto</label>
-    <select id="project" name="project" required>
-      <option value="">-- Selecione um projeto --</option>
-      <option value="GENBR">GENBR - Projeto Genomas Brasil Eixo Câncer</option>
-      <option value="ATPBR">ATPBR - Atlas tumoral da população Brasileira</option>
-      <option value="LIQBP">LIQBP - Projeto Biópsia Líquida</option>
-      <option value="BRPRO">BRPRO - Panorama da Variação Genética Somática do Câncer de Próstata na População Brasileira</option>
-    </select>
-  </div>
+      <!-- Projeto -->
+      <fieldset>
+        <legend>📁 Projeto</legend>
 
-  <!-- Neoplasia primária -->
-  <div class="form-group espaco-extra">
-    <label for="cancertype">Neoplasia primária:</label>
-    <select id="cancertype" required>
-      <option value="">Selecione...</option>
-      <option value="56">Câncer de Ovário (CID 56)</option>
-      <option value="50">Câncer de Mama (CID 50)</option>
-      <option value="53">Câncer de Colo de Útero (CID 53)</option>
-      <option value="54">Câncer de Corpo de Útero (CID 54)</option>
-      <option value="60">Câncer de Pênis (CID 60)</option>
-      <option value="61">Câncer de Próstata (CID 61)</option>
-      <option value="21">Câncer Anal (CID 21)</option>
-      <option value="91">Leucemia Linfóide (CID 91)</option>
-      <option value="92">Leucemia Mielóide (CID 92)</option>
-    </select>
-  </div>
+        <!-- Nome do projeto -->
+        <div class="form-group">
+          <label for="project">Nome do projeto</label>
+          <select id="project" name="project" required>
+            <option value="">-- Selecione um projeto --</option>
+            <option value="GENBR">GENBR - Projeto Genomas Brasil Eixo Câncer</option>
+            <option value="ATPBR">ATPBR - Atlas tumoral da população Brasileira</option>
+            <option value="LIQBP">LIQBP - Projeto Biópsia Líquida</option>
+            <option value="BRPRO">BRPRO - Panorama da Variação Genética Somática do Câncer de Próstata na População Brasileira</option>
+          </select>
+        </div>
 
-  <!-- Centro participante -->
-  <div class="form-group espaco-extra">
-    <label for="center">Centro participante responsável pela coleta:</label>
-    <select id="center" required>
-      <option value="">Selecione...</option>
-      <option value="001">Instituto Nacional do Câncer - INCA (001)</option>
-      <option value="002">Instituto do Câncer do Estado de São Paulo - ICESP (002)</option>
-      <option value="003">Instituto do Câncer do Ceará - ICC (003)</option>
-      <option value="004">Hospital Geral Moncorvo Filho (004)</option>
-    </select>
-  </div>
-</fieldset>
+        <!-- Neoplasia primária -->
+        <div class="form-group espaco-extra">
+          <label for="cancertype">Neoplasia primária:</label>
+          <select id="cancertype" required>
+            <option value="">Selecione...</option>
+            <option value="56">Câncer de Ovário (CID 56)</option>
+            <option value="50">Câncer de Mama (CID 50)</option>
+            <option value="53">Câncer de Colo de Útero (CID 53)</option>
+            <option value="54">Câncer de Corpo de Útero (CID 54)</option>
+            <option value="60">Câncer de Pênis (CID 60)</option>
+            <option value="61">Câncer de Próstata (CID 61)</option>
+            <option value="21">Câncer Anal (CID 21)</option>
+            <option value="91">Leucemia Linfóide (CID 91)</option>
+            <option value="92">Leucemia Mielóide (CID 92)</option>
+          </select>
+        </div>
 
-<fieldset>
-  <legend>🧪 Classificação das Amostras:</legend>
+        <!-- Centro participante -->
+        <div class="form-group espaco-extra">
+          <label for="center">Centro participante responsável pela coleta:</label>
+          <select id="center" required>
+            <option value="">Selecione...</option>
+            <option value="001">Instituto Nacional do Câncer - INCA (001)</option>
+            <option value="002">Instituto do Câncer do Estado de São Paulo - ICESP (002)</option>
+            <option value="003">Instituto do Câncer do Ceará - ICC (003)</option>
+            <option value="004">Hospital Geral Moncorvo Filho (004)</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Classificação das amostras -->
+      <fieldset>
+        <legend>🧪 Classificação das Amostras:</legend>
+
         <label>
           Tipo de amostra:
           <select id="sampletype" required>
@@ -163,22 +177,23 @@
             <option value="L">Solução Fisiológica (L)</option>
           </select>
         </label>
+      </fieldset>
 
-</fieldset>
-      
+      <!-- Sequenciamento -->
       <fieldset>
         <legend>🧬 Sequenciamento:</legend>
-          <label>
-            Tipo de Ômica:
-            <select id="omicstype" required>
-              <option value="">Selecione...</option>
-              <option value="G">Whole Genome Sequencing (G)</option>
-              <option value="X">Whole Exome Sequencing (E)</option>
-              <option value="R">RNA-Seq Sequencing (R)</option>
-              <option value="M">DNA Methylation (M)</option>
-              <option value="B">5-base DNA Methylation (B)</option>
-              <option value="P">Gene Panel Sequencing (P)</option>
-            </select>
+
+        <label>
+          Tipo de Ômica:
+          <select id="omicstype" required>
+            <option value="">Selecione...</option>
+            <option value="G">Whole Genome Sequencing (G)</option>
+            <option value="X">Whole Exome Sequencing (E)</option>
+            <option value="R">RNA-Seq Sequencing (R)</option>
+            <option value="M">DNA Methylation (M)</option>
+            <option value="B">5-base DNA Methylation (B)</option>
+            <option value="P">Gene Panel Sequencing (P)</option>
+          </select>
         </label>
 
         <label>
@@ -189,19 +204,25 @@
         </label>
       </fieldset>
 
+      <!-- Pacientes / Amostras / Lane -->
       <fieldset>
-        <legend>👤 Pacientes / Amostras / Lane </legend>
+        <legend>👤 Pacientes / Amostras / Lane</legend>
+
         <p class="example">
           Informe um valor por linha em cada campo. As três colunas devem ter a mesma
           quantidade de linhas, pois cada linha corresponde a uma amostra.
         </p>
         <p class="example">
-          <strong>Valores aceitos:</strong> doadores/pacientes e amostras com 4 dígitos
+          <strong>Valores aceitos:</strong>
+        </p>
+        <p class="example">
+          Doadores/pacientes e amostras com 4 dígitos
           (0000 a 9999) e lane com 2 dígitos (00 a 99).
         </p>
         <p class="example">
-           Os números dos doadores/pacientes devem ser anonimizados.
+          Os números dos doadores/pacientes devem ser anonimizados.
         </p>
+
         <div class="textareas-container">
           <label>
             Doadores/Pacientes:
