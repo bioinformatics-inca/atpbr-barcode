@@ -123,6 +123,7 @@ code {
 
 /* Barcode de exemplo */
 .barcode-exemplo {
+  box-sizing: border-box; /* padding/borda dentro do width: 100% herdado de "p" */
   font-family: 'Courier New', Courier, monospace;
   font-size: 17px;
   font-weight: bold;
