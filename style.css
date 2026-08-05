@@ -112,6 +112,15 @@ code {
   border-radius: 4px;
 }
 
+/* Data da última atualização */
+.atualizado {
+  text-align: right;
+  font-size: 13px;
+  color: #888;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
 /* Barcode de exemplo */
 .barcode-exemplo {
   font-family: 'Courier New', Courier, monospace;
