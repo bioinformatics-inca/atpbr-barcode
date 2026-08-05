@@ -44,11 +44,11 @@ form.addEventListener("submit", (e) => {
   for (let i = 0; i < doadores.length; i++) {
     const doadorID = doadores[i];
     const sampleID = amostras[i];
-    const codExtra = `${sampleType}${sampleStatus}${samplePreservation}${omicsType}`;
-    const barcode = `${project}-${cancerCID}-${centerID}-${doadorID}-${sampleID}-${codExtra}`; 
+    const codExtra = `${sampleType}${sampleStatus}${samplePreservation}`;
+    const barcode = `${project}-${cancerCID}-${centerID}-${doadorID}-${sampleID}-${codExtra}-${omicsType}`; 
     
     codigosGerados.push(barcode);
-    linhasCSV.push(`${project};${cancerCID};${centerID};${doadorID};${sampleID};${codExtra};${barcode}`); 
+    linhasCSV.push(`${project};${cancerCID};${centerID};${doadorID};${sampleID};${codExtra};${omicsType};${barcode}`); 
   }
 
   resultado.innerHTML = `
