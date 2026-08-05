@@ -50,7 +50,7 @@
     <h2>🧬 Geração de Barcodes Padronizados</h2>
     <p class="example">Preencha os campos abaixo para gerar o barcode padronizado para sua amostra.</p>
     
-    <form id="form" class="form">
+    <form id="form" class="form" novalidate>
       
 <!-- Projeto -->
 <fieldset>
@@ -64,6 +64,7 @@
       <option value="GENBR">GENBR - Projeto Genomas Brasil Eixo Câncer</option>
       <option value="ATPBR">ATPBR - Atlas tumoral da população Brasileira</option>
       <option value="LIQBP">LIQBP - Projeto Biópsia Líquida</option>
+      <option value="BRPRO">BRPRO - Panorama da Variação Genética Somática do Câncer de Próstata na População Brasileira</option>
     </select>
   </div>
 
@@ -163,24 +164,40 @@
           </select>
         </label>
 
-        <label>
-          Tipo de Ômica:
-          <select id="omicstype" required>
-            <option value="">Selecione...</option>
-            <option value="G">Whole Genome Sequencing (G)</option>
-            <option value="X">Whole Exome Sequencing (E)</option>
-            <option value="R">RNA-Seq Sequencing (R)</option>
-            <option value="M">DNA Methylation (M)</option>
-            <option value="B">5-base DNA Methylation (B)</option>
-            <option value="P">Gene Panel Sequencing (P)</option>
-          </select>
-        </label>
-      </fieldset>
+</fieldset>
       
       <fieldset>
-        <legend>👤 Doadores / Pacientes e Amostras</legend>
+        <legend>🧬 Sequenciamento:</legend>
+          <label>
+            Tipo de Ômica:
+            <select id="omicstype" required>
+              <option value="">Selecione...</option>
+              <option value="G">Whole Genome Sequencing (G)</option>
+              <option value="X">Whole Exome Sequencing (E)</option>
+              <option value="R">RNA-Seq Sequencing (R)</option>
+              <option value="M">DNA Methylation (M)</option>
+              <option value="B">5-base DNA Methylation (B)</option>
+              <option value="P">Gene Panel Sequencing (P)</option>
+            </select>
+        </label>
+
+        <label>
+          Número da corrida:
+          <span class="hint">Valores aceitos: 2 dígitos, de 00 a 99 (ex.: 01).</span>
+          <input type="text" id="runnumber" inputmode="numeric" maxlength="2"
+                 pattern="\d{2}" placeholder="Ex: 01" required>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>👤 Pacientes / Amostras / Lane </legend>
         <p class="example">
-          Informe os códigos dos doadores/pacientes e amostras (um por linha, 4 dígitos cada).
+          Informe um valor por linha em cada campo. As três colunas devem ter a mesma
+          quantidade de linhas, pois cada linha corresponde a uma amostra.
+        </p>
+        <p class="example">
+          <strong>Valores aceitos:</strong> doadores/pacientes e amostras com 4 dígitos
+          (0000 a 9999) e lane com 2 dígitos (00 a 99).
         </p>
         <p class="example">
            Os números dos doadores/pacientes devem ser anonimizados.
@@ -188,13 +205,20 @@
         <div class="textareas-container">
           <label>
             Doadores/Pacientes:
-            <textarea id="doador" rows="5" placeholder="Ex: 0001&#10;0002&#10;0003" required></textarea>
+            <span class="hint">4 dígitos por linha</span>
+            <textarea id="doador" rows="5" inputmode="numeric" placeholder="Ex: 0001&#10;0002&#10;0003" required></textarea>
           </label>
           <label>
             Amostras:
-            <textarea id="amostra" rows="5" placeholder="Ex: 1001&#10;1002&#10;1003" required></textarea>
+            <span class="hint">4 dígitos por linha</span>
+            <textarea id="amostra" rows="5" inputmode="numeric" placeholder="Ex: 1001&#10;1002&#10;1003" required></textarea>
           </label>
-        </div> 
+          <label>
+            Lane:
+            <span class="hint">2 dígitos por linha</span>
+            <textarea id="lane" rows="5" inputmode="numeric" placeholder="Ex: 01&#10;02&#10;03" required></textarea>
+          </label>
+        </div>
       </fieldset>
 
       <button type="submit" class="btn">Criar Barcode</button>
