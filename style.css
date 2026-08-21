@@ -195,6 +195,47 @@ legend {
   gap: 20px; /* Espaço entre os dois campos */
 }
 
+/* ====== Nível do barcode ====== */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.radio-option:hover {
+  background: #f7fafd;
+}
+
+.radio-option input[type="radio"] {
+  width: auto;
+  margin: 3px 0 0;
+  padding: 0;
+  accent-color: #2251a4;
+  flex-shrink: 0;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+  border-color: #2251a4;
+  background: #eaf3ff;
+}
+
+/* Campos escondidos conforme o nível escolhido */
+.oculto {
+  display: none !important;
+}
+
 /* ====== Botão ====== */
 .btn {
   margin-top: 25px;
