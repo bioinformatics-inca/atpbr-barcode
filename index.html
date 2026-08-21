@@ -51,6 +51,11 @@
       Reunindo os sete campos do exemplo acima, o barcode resultante é:
     </p>
     <p class="barcode-exemplo">ATPBR-56-001-1234-5678-01AB-G0107</p>
+    <p>
+      O barcode pode ser gerado em dois níveis: no <strong>nível de amostra</strong>, com os seis primeiros campos
+      (<code>ATPBR-56-001-1234-5678-01AB</code>), quando ainda não há dados de sequenciamento associados; ou no
+      <strong>nível de ômicas</strong>, com os sete campos (<code>ATPBR-56-001-1234-5678-01AB-G0107</code>).
+    </p>
 
     <h3>Contato</h3>
     <p>
@@ -65,6 +70,30 @@
     <p class="example">Preencha os campos abaixo para gerar o barcode padronizado para sua amostra.</p>
 
     <form id="form" class="form" novalidate>
+
+      <!-- Nivel do barcode -->
+      <fieldset>
+        <legend>🎯 Nível do Barcode</legend>
+
+        <p class="example">Escolha até qual campo o barcode deve ser gerado.</p>
+
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="barcodelevel" value="omicas" checked>
+            <span>
+              <strong>Nível de ômicas</strong> - barcode completo, com os sete campos, incluindo o sequenciamento.
+              <span class="hint">Ex.: ATPBR-56-001-1234-5678-01AB-G0107</span>
+            </span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="barcodelevel" value="amostra">
+            <span>
+              <strong>Nível de amostra</strong> - barcode até o sexto campo (classificação da amostra), sem o sequenciamento.
+              <span class="hint">Ex.: ATPBR-56-001-1234-5678-01AB</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
 
       <!-- Projeto -->
       <fieldset>
@@ -183,7 +212,7 @@
       </fieldset>
 
       <!-- Sequenciamento -->
-      <fieldset>
+      <fieldset id="seq-fieldset">
         <legend>🧬 Sequenciamento:</legend>
 
         <label>
@@ -209,16 +238,16 @@
 
       <!-- Pacientes / Amostras / Lane -->
       <fieldset>
-        <legend>👤 Pacientes / Amostras / Lane</legend>
+        <legend id="samples-legend">👤 Pacientes / Amostras / Lane</legend>
 
-        <p class="example">
+        <p class="example" id="samples-help">
           Informe um valor por linha em cada campo. As três colunas devem ter a mesma
           quantidade de linhas, pois cada linha corresponde a uma amostra.
         </p>
         <p class="example">
           <strong>Valores aceitos:</strong>
         </p>
-        <p class="example">
+        <p class="example" id="samples-accepted">
           Doadores/pacientes e amostras com 4 dígitos
           (0000 a 9999) e lane com 2 dígitos (00 a 99).
         </p>
@@ -237,7 +266,7 @@
             <span class="hint">4 dígitos por linha</span>
             <textarea id="amostra" rows="5" inputmode="numeric" placeholder="Ex: 1001&#10;1002&#10;1003" required></textarea>
           </label>
-          <label>
+          <label id="lane-field">
             Lane:
             <span class="hint">2 dígitos por linha</span>
             <textarea id="lane" rows="5" inputmode="numeric" placeholder="Ex: 01&#10;02&#10;03" required></textarea>
