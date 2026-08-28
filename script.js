@@ -52,6 +52,7 @@ form.addEventListener("submit", (e) => {
   const sampleType = document.getElementById("sampletype").value;
   const sampleStatus = document.getElementById("samplestatus").value;
   const samplePreservation = document.getElementById("samplepreservation").value;
+  const collectionTubeAdditive = document.getElementById("collectiontubeadditive").value;
   const omicsType = document.getElementById("omicstype").value;
   const runNumber = document.getElementById("runnumber").value.trim();
 
@@ -90,15 +91,17 @@ form.addEventListener("submit", (e) => {
 
   let codigosGerados = [];
   let linhasCSV = [nivelAmostra
-    ? "Projeto;CID;Centro;Participante;Amostra;Classificacao;Barcode"
-    : "Projeto;CID;Centro;Participante;Amostra;Classificacao;Omica;Corrida;Lane;Barcode"];
+    ? "Projeto;CID;Centro;Participante;Amostra;Classificacao;AditivoTubo;Barcode"
+    : "Projeto;CID;Centro;Participante;Amostra;Classificacao;AditivoTubo;Omica;Corrida;Lane;Barcode"];
 
   for (let i = 0; i < doadores.length; i++) {
     const doadorID = doadores[i];
     const sampleID = amostras[i];
+    // O aditivo do tubo de coleta é apenas informativo: não compõe o barcode,
+    // só é registrado como coluna extra no CSV.
     const codExtra = `${sampleType}${sampleStatus}${samplePreservation}`;
     const inicioBarcode = `${project}-${cancerCID}-${centerID}-${doadorID}-${sampleID}-${codExtra}`;
-    const inicioCSV = `${project};${cancerCID};${centerID};${doadorID};${sampleID};${codExtra}`;
+    const inicioCSV = `${project};${cancerCID};${centerID};${doadorID};${sampleID};${codExtra};${collectionTubeAdditive}`;
 
     if (nivelAmostra) {
       codigosGerados.push(inicioBarcode);
